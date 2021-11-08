@@ -2,23 +2,23 @@
   - name: "My first play"
     hosts: k8s
 
-  task:
+  tasks:
     - name: "Test reachability"
-      ping:
+      ansible.builtin.ping:
 
     - name: "Add Docker Repo"
-      get_url: 
+      ansible.builtin.get_url: 
         url: https://download.docker.com/linux/centos/docker-ce.repo
         dest: /etc/yum.repos.d/docker-ce.repo
     
     - name: "Install Docker"
-      yum:
+      ansible.builtin.yum:
         name: 
           - docker-ce
         state: latest
 
     - name: "Enable and start Docker Daemon"
-      systemd:
+      ansible.builtin.systemd:
         name: docker
         enabled: yes
         state: started
