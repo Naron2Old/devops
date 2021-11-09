@@ -26,3 +26,9 @@
     ansible.builtin.group:
       name: docker
       state: present
+
+  - name: "Add User to Docker Usergroup"
+    ansible.builtin.user:
+      name: vagrant
+      state: present
+      groups: docker
