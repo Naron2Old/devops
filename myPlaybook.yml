@@ -38,7 +38,5 @@
   handlers:
     - name: Restart host
       listen: "restart machine"
-      debug:
-        msg: "CALLED HANDLER FOR RESTART OF {{ inventory_hostname }}"
       ansible.builtin.reboot:
         test_command:
