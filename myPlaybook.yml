@@ -26,9 +26,18 @@
     ansible.builtin.group:
       name: docker
       state: present
+    changed_when: true
 
   - name: "Add User to Docker Usergroup"
     ansible.builtin.user:
       name: vagrant
       state: present
       groups: docker
+    notify: user added
+
+  handlers:
+  - name: user added
+    debug:
+      msg: "CALLED HANDLER FOR RESTART"
+    ansible.builtin.reboot:
+      test_command:
