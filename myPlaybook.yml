@@ -21,3 +21,8 @@
       name: docker
       enabled: yes
       state: started
+
+  - name: "Create Docker Usergroup"
+    ansible.builtin.group:
+      name: docker
+      state: present
