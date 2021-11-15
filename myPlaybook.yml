@@ -1,10 +1,15 @@
 ---
 - name: "My first play"
-  hosts: k8s
+  hosts: myhosts
 
   tasks:
   - name: "Test reachability"
     ansible.builtin.ping:
+
+  - name: "Install Vim"
+    ansible.builtin.yum:
+      name: vim
+      state: latest
 
   - name: "Add Docker Repo"
     ansible.builtin.get_url: 
