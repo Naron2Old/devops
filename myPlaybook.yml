@@ -1,5 +1,5 @@
 ---
-- name: "My first play"
+- name: "Install Docker & Vim"
   hosts: myhosts
 
   tasks:
